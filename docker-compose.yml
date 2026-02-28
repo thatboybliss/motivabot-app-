@@ -1,0 +1,27 @@
+
+version: '3.8'
+
+services:
+
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./api-gateway/.env
+
+  speech-service:
+    build: ./speech-service
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./speech-service/.env
+
+  websocket-service:
+    image: ruby:3.2
+    volumes:
+      - ./websocket-service:/app
+    working_dir: /app
+    command: ruby server.rb
+    ports:
+      - "6000:6000"
