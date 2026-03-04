@@ -1,0 +1,5 @@
+- name: Install Ruby and gems
+  uses: ruby/setup-ruby@78c01b705fd9d5ad960d432d3a0cfa341d50e410
+  with:
+    ruby-version: 3.2
+    bundler-cache: true
